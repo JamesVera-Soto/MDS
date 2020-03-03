@@ -1,7 +1,7 @@
 #
 # define display information
 #
-name: run_metaMDS_test
+name: test_run_metaMDS
 
 tooltip: |
     Perform metaMDS analysis on matrix data
