@@ -475,6 +475,7 @@ class MDSUtils:
         :param input_obj_ref: object reference of a matrix
         :param workspace_name: the name of the workspace
         :param mds_matrix_name: name of MDS (KBaseExperiments.MDSMatrix) object
+        dimension: compute correlation on column or row, one of ['col', 'row']
         :param n_components - dimentionality of the reduced space (default 2)
         :param max_iter: maximum iterations allowed
         :param metric: indication of running metric or non-metric MDS
@@ -489,6 +490,7 @@ class MDSUtils:
         input_obj_ref = params.get(self.PARAM_IN_MATRIX)
         workspace_name = params.get(self.PARAM_IN_WS)
         mds_matrix_name = params.get(self.PARAM_OUT_MATRIX)
+        dimension = params.get('dimension', 'row')
         n_components = int(params.get('n_components', 2))
 
         res = self.dfu.get_objects({'object_refs': [input_obj_ref]})['data'][0]
@@ -581,3 +583,14 @@ class MDSUtils:
         })
 
         return {'shock_id': package_details['shock_id']}
+
+    def test_run_metaMDS(self, params):
+        input_obj_ref = params.get(self.PARAM_IN_MATRIX)
+        workspace_name = params.get(self.PARAM_IN_WS)
+        mds_matrix_name = params.get(self.PARAM_OUT_MATRIX)
+        dimension = params.get('dimension', 'row')
+        n_components = int(params.get('n_components', 2))
+        color_marker = params.get('color_marker_by')
+        scale_seize = params.get('scale_size_by')
+        for item in [input_obj_ref, workspace_name, mds_matrix_name, dimension, n_components, color_marker, scale_seize]:
+            print(item)

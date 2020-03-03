@@ -80,7 +80,7 @@ class kb_Amplicon:
         # ctx is the context object
         # return variables are: returnVal
         #BEGIN run_metaMDS
-        returnVal = self.mds_util.run_metaMDS(params)
+        returnVal = self.mds_util.test_run_metaMDS(params)
         #returnVal = self.mds_util.run_metaMDS_with_file(params)
         #END run_metaMDS
 
